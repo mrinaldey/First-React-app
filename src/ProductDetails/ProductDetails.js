@@ -14,11 +14,11 @@ const ProductDetails = (properties) => {
     })
     const featureList = properties.data.featureList.map((item, pos) => {
         const classArr = [classes.FeatureItem];
-        if(pos === 0) {
+        if(pos === properties.currentSelectedFeature) {
             classArr.push(classes.SelectedFeatureItem);
         }
         return(
-            <button key={pos} className={classArr.join(' ')}>{item}</button>
+            <button onClick={() => properties.onFeatureItemClick(pos)} key={pos} className={classArr.join(' ')}>{item}</button>
         )
     })
     return(

@@ -10,9 +10,9 @@ const ProductPreview = (properties) => {
             <img src={properties.currentPreviewImage} alt="Product Preview" />
 
             {
-              properties.showHeartBeatSection ? 
+              properties.currentSelectedFeature === 1 ? 
               <div className={classes.HeartBeatSection}>
-                <i class="fas fa-heartbeat"></i>
+                <i className="fas fa-heartbeat"></i>
                 <p>78</p>
               </div>
               :
