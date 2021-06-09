@@ -9,8 +9,12 @@ import ProductData from './Utils/ProductData';
 class App extends Component {
   state = {
     productData: ProductData,
-    currentPreviewImage: "https://imgur.com/xSIK4M8.png",
+    currentPreviewImagePos: 0,
     showHeartBeatSection: false,
+  }
+
+  onColorOptionClick = (pos) => {
+    this.setState({currentPreviewImagePos: pos});
   }
   render() {
     return (
@@ -18,11 +22,11 @@ class App extends Component {
           <Topbar />
         <div className={classes.MainContainer}>
           <div className={classes.ProductPreview}>
-            <ProductPreview currentPreviewImage={this.state.currentPreviewImage} showHeartBeatSection={this.state.showHeartBeatSection} />
+            <ProductPreview currentPreviewImage={this.state.productData.colorOptions[this.state.currentPreviewImagePos].imageUrl} showHeartBeatSection={this.state.showHeartBeatSection} />
           </div>
   
            <div className={classes.ProductData}>
-             <ProductDetails data={this.state.productData} />
+             <ProductDetails data={this.state.productData} onColorOptionClick={this.onColorOptionClick} currentPreviewImagePos={this.state.currentPreviewImagePos} />
            </div>
         </div>
       </div>
