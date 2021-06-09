@@ -13,12 +13,17 @@ class App extends Component {
     currentSelectedFeature: 0,
   }
 
-  onColorOptionClick = (pos) => {
-    this.setState({currentPreviewImagePos: pos});
-  }
+  // onColorOptionClick = (pos) => {
+  //   this.setState({currentPreviewImagePos: pos});
+  // }
 
   onFeatureItemClick = (pos) => {
     this.setState({currentSelectedFeature: pos});
+
+  }
+
+  onColorOptionClick = (pos) => {
+    this.setState({currentPreviewImagePos: pos});
   }
   render() {
     return (
